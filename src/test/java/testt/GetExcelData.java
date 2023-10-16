@@ -12,14 +12,9 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class GetExcelData {
 
-    @DataProvider(name ="laptops-data")
+    @DataProvider(name ="search-data")
     public Object[][] excelDP() {
-        Object[][] arrObj = getExcelData("src/main/resources/Data/TestData.xlsx", "Laptops");
-        return arrObj;
-    }
-    @DataProvider(name ="phones-data")
-    public Object[][] excelD() {
-        Object[][] arrObj = getExcelData("src/main/resources/Data/TestData.xlsx", "Phones");
+        Object[][] arrObj = getExcelData("src/main/resources/Data/TestData.xlsx", "Sheet1");
         return arrObj;
     }
     public Object[][] getExcelData(String fileName, String sheetName) {
