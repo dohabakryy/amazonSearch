@@ -29,4 +29,8 @@ public class BaseTest {
         return driverHandler.getDriver();
     }
 
+    @AfterSuite
+    public void tearDown() {
+        driverHandler.getDriver().quit();
+    }
 }

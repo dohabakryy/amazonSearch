@@ -20,4 +20,5 @@ public class DriverHandler {
     public void openAmazon() {
         driver.get("https://amazon.eg/");
     }
+
 }
