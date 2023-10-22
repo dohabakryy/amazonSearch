@@ -1,29 +1,26 @@
 package testt;
 
-import Pages.P01_HomePage;
-import Pages.P02_SearchResults;
-import org.apache.poi.util.SystemOutLogger;
-import org.openqa.selenium.By;
+import Pages.homePage;
+import Pages.resultPage;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
-import java.util.List;
 
-public class SearchAndFilterTest {
+public class WithoutBaseTest {
 
 
     private WebDriver driver;
     private WebDriverWait wait;
-    P01_HomePage homePage;
-    P02_SearchResults resultPage;
+    Pages.homePage homePage;
+    Pages.resultPage resultPage;
 
     @BeforeTest
     public void setUp()
@@ -33,8 +30,8 @@ public class SearchAndFilterTest {
         options.addArguments("--start-maximized");
         options.addArguments("--incognito");
         driver = new ChromeDriver(options);
-        homePage = new P01_HomePage(driver);
-        resultPage = new P02_SearchResults(driver);
+        homePage = new homePage(driver);
+        resultPage = new resultPage(driver);
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         driver.get("https://www.amazon.eg/");
 
@@ -42,7 +39,7 @@ public class SearchAndFilterTest {
 
 
     @Test(dataProvider ="search-data",dataProviderClass = GetExcelData.class)
-    public void searchLaptops(String searchInput , String Brand )
+    public void searchProducts(String searchInput , String Brand )
     {
 
         homePage.searchButton().clear();
@@ -52,7 +49,11 @@ public class SearchAndFilterTest {
         homePage.searchButton().sendKeys(searchInput);
         homePage.searchButton().submit();
         // click on see more
-        resultPage.seeMoreButton().click();
+        try{
+            wait.until(ExpectedConditions.elementToBeClickable(resultPage.seeMoreButton())).click();
+        }
+        catch (NoSuchElementException e)
+        { System.out.println("Element not found, skipping");}
         // filter by brand
         resultPage.selectBrand(Brand);
 
