@@ -25,7 +25,7 @@ public class SearchAndFilter extends BaseTest {
     WebDriverWait wait;
     homePage homePage;
     resultPage resultPage;
-
+    SoftAssert softAssert;
 
     @BeforeMethod
     public void setUp() {
@@ -33,6 +33,7 @@ public class SearchAndFilter extends BaseTest {
         homePage = new homePage(driver);
         resultPage = new resultPage(driver);
         wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        softAssert = new SoftAssert();
 
 
     }
@@ -59,10 +60,10 @@ public class SearchAndFilter extends BaseTest {
         resultPage.selectBrand(Brand);
 
         //Assertions
-         List<String> searchResults = resultPage.getSearchResults();
+        List<String> searchResults = resultPage.getSearchResults();
         for (String result : searchResults) {
-            Assert.assertTrue(result.contains(Brand), "Search result does not contain the expected brand: " + result);
-
+            softAssert.assertTrue(result.contains(Brand), "Search result does not contain the expected brand: " + result);
+            softAssert.assertAll();
         }
     }
 }
