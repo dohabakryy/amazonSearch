@@ -5,6 +5,7 @@ import Pages.resultPage;
 import org.apache.xmlbeans.GDuration;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -58,10 +59,10 @@ public class SearchAndFilter extends BaseTest {
         resultPage.selectBrand(Brand);
 
         //Assertions
-        /* List<String> searchResults = resultPage.getSearchResults();
+         List<String> searchResults = resultPage.getSearchResults();
         for (String result : searchResults) {
-            Assert.assertTrue(result.contains(Brand), "Search result does not contain the expected brand: " + Brand);
+            Assert.assertTrue(result.contains(Brand), "Search result does not contain the expected brand: " + result);
 
-        }*/
+        }
     }
 }

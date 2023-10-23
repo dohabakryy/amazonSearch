@@ -14,7 +14,7 @@ public class resultPage {
     WebDriver driver;
     WebDriverWait wait;
 
-    public resultPage (WebDriver driver) {
+    public resultPage(WebDriver driver) {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
@@ -30,8 +30,9 @@ public class resultPage {
 
         wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//*[contains(@id,'p_89/" + Brand + "')]//*[contains(@class,'a-icon a-icon-checkbox')]")))).click();
     }
-   /* public List<String> getSearchResults() {
-        List<WebElement> resultElements = driver.findElements(By.xpath("//div[@class='a-section a-spacing-none a-spacing-top-small s-title-instructions-style']"));
+
+    public List<String> getSearchResults() {
+        List<WebElement> resultElements = driver.findElements(By.cssSelector(".s-result-item h2 a"));
         List<String> searchResults = new ArrayList<>();
 
         for (WebElement resultElement : resultElements) {
@@ -39,7 +40,8 @@ public class resultPage {
             searchResults.add(resultText);
         }
 
-        return searchResults; */
+        return searchResults;
     }
+}
 
 

@@ -11,14 +11,14 @@ public class DriverHandler {
 
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--start-maximized");
-        //options.addArguments("--incognito");
+        options.addArguments("--incognito");
         driver = new ChromeDriver(options);
     }
     public WebDriver getDriver() {
         return driver;
     }
     public void openAmazon() {
-        driver.get("https://amazon.eg/");
+        driver.get("https://www.amazon.eg/?language=en_AE");
     }
 
 }

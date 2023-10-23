@@ -36,7 +36,7 @@ public class GetExcelData {
            int noOfCols = row.getLastCellNum();
             Cell cell;
             data = new Object[noOfRows-1][noOfCols];
-            for (int i = 1; i < noOfRows; i++) {
+            for (int i = 1; i <= noOfRows-2 ; i++) {
                 for (int j = 0; j < noOfCols; j++) {
                     row = sh.getRow(i);
                     cell = row.getCell(j);
