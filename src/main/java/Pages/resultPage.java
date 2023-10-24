@@ -1,6 +1,7 @@
 package Pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -20,10 +21,21 @@ public class resultPage {
     }
 
     By seeMore = By.xpath("//*[contains(@id,'brandsRefinements')]//*[contains(@class,'a-expander-prompt')]");
+    By actualSearchWord = By.xpath("//span[@class='a-color-state a-text-bold']");
 
+    public void seeMoreButton() {
+        try {
+            wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(seeMore))).click();
+        } catch (NoSuchElementException e) {
+            System.out.println("Element not found, skipping");
+        }
+    }
 
-    public WebElement seeMoreButton() {
-        return wait.until(ExpectedConditions.visibilityOf(driver.findElement(seeMore)));
+    public String getActualSearchWord() {
+
+       String text1 = driver.findElement(actualSearchWord).getText();
+       return text1.replaceAll("\"","");
+
     }
 
     public void selectBrand(String Brand) {
@@ -31,17 +43,8 @@ public class resultPage {
         wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//*[contains(@id,'p_89/" + Brand + "')]//*[contains(@class,'a-icon a-icon-checkbox')]")))).click();
     }
 
-    public List<String> getSearchResults() {
-        List<WebElement> resultElements = driver.findElements(By.cssSelector(".s-result-item h2 a"));
-        List<String> searchResults = new ArrayList<>();
 
-        for (WebElement resultElement : resultElements) {
-            String resultText = resultElement.getText();
-            searchResults.add(resultText);
-        }
-
-        return searchResults;
-    }
 }
+
 
 

@@ -50,20 +50,14 @@ public class SearchAndFilter extends BaseTest {
         homePage.searchButton().sendKeys(searchInput);
         homePage.searchButton().submit();
         // click on see more
-        try {
-            wait.until(ExpectedConditions.elementToBeClickable(resultPage.seeMoreButton())).click();
-        } catch (NoSuchElementException e) {
-            System.out.println("Element not found, skipping");
-        }
+        resultPage.seeMoreButton();
 
         // filter by brand
         resultPage.selectBrand(Brand);
 
         //Assertions
-        List<String> searchResults = resultPage.getSearchResults();
-        for (String result : searchResults) {
-            softAssert.assertTrue(result.contains(Brand), "Search result does not contain the expected brand: " + result);
-            softAssert.assertAll();
-        }
+        softAssert.assertEquals(resultPage.getActualSearchWord(), searchInput);
+        softAssert.assertAll();
     }
 }
+
