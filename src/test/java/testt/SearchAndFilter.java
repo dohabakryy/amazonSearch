@@ -22,7 +22,6 @@ public class SearchAndFilter extends BaseTest {
 
 
     WebDriver driver;
-    WebDriverWait wait;
     homePage homePage;
     resultPage resultPage;
     SoftAssert softAssert;
@@ -32,7 +31,6 @@ public class SearchAndFilter extends BaseTest {
         driver = driverHandler.getDriver();
         homePage = new homePage(driver);
         resultPage = new resultPage(driver);
-        wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         softAssert = new SoftAssert();
 
 
