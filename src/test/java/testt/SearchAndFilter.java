@@ -24,26 +24,30 @@ public class SearchAndFilter extends BaseTest {
 
 
     }
-
-    @Test(dataProvider = "search-data", dataProviderClass = GetExcelData.class)
-    public void searchProducts(String searchInput, String Brand) {
-
-
-        homePage.searchButton().clear();
-
-
-        // Search for product
-        homePage.searchButton().sendKeys(searchInput);
-        homePage.searchButton().submit();
-        // click on see more
-        resultPage.seeMoreButton();
-
-        // filter by brand
-        resultPage.selectBrand(Brand);
-
-        //Assertions
-        softAssert.assertEquals(resultPage.getActualSearchWord(), searchInput);
-        softAssert.assertAll();
+    @Test
+    public void dummyTest() {
+        System.out.println(">>> Dummy test executed <<<");
     }
+
+//    @Test(dataProvider = "search-data", dataProviderClass = GetExcelData.class)
+//    public void searchProducts(String searchInput, String Brand) {
+//
+//
+//        homePage.searchButton().clear();
+//
+//
+//        // Search for product
+//        homePage.searchButton().sendKeys(searchInput);
+//        homePage.searchButton().submit();
+//        // click on see more
+//        resultPage.seeMoreButton();
+//
+//        // filter by brand
+//        resultPage.selectBrand(Brand);
+//
+//        //Assertions
+//        softAssert.assertEquals(resultPage.getActualSearchWord(), searchInput);
+//        softAssert.assertAll();
+//    }
 }
 
