@@ -25,7 +25,6 @@ public class SearchAndFilter extends BaseTest {
 
     }
 
-
     @Test(dataProvider = "search-data", dataProviderClass = GetExcelData.class)
     public void searchProducts(String searchInput, String Brand) {
 
