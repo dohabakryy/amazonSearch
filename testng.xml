@@ -3,6 +3,8 @@
 <suite name="MyTestSuite">
     <test name="MyTest">
         <classes>
+            <class name="testt.BaseTest"></class>
+            <class name="testt.GetExcelData"></class>
             <class name="testt.SearchAndFilter" />
             <!-- Add more classes if needed -->
         </classes>
