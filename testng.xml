@@ -1,12 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="MyTestSuite">
-    <test name="MyTest">
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Amazon Suite">
+    <test name="Search Test">
         <classes>
-            <class name="testt.BaseTest"></class>
-            <class name="testt.GetExcelData"></class>
-            <class name="testt.SearchAndFilter" />
-            <!-- Add more classes if needed -->
+            <class name="testt.SearchAndFilter"/>
         </classes>
     </test>
 </suite>
