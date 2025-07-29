@@ -26,6 +26,7 @@ public class SearchAndFilter extends BaseTest {
     }
     @Test
     public void dummyTest() {
+        homePage.searchButton().sendKeys("HIIIIIII");
         System.out.println(">>> Dummy test executed <<<");
     }
 
