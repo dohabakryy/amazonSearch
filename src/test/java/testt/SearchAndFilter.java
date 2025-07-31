@@ -29,6 +29,12 @@ public class SearchAndFilter extends BaseTest {
         homePage.searchButton().sendKeys("HIIIIIII");
         System.out.println(">>> Dummy test executed <<<");
     }
+    @Test
+    public void dummy2(){
+        homePage.searchButton().sendKeys("HIIIIIII2222222");
+        System.out.println(">>> Dummy test executed <<<");
+
+    }
 
 //    @Test(dataProvider = "search-data", dataProviderClass = GetExcelData.class)
 //    public void searchProducts(String searchInput, String Brand) {
